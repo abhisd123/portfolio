@@ -22,29 +22,7 @@
             position: relative;
         }
 
-        /* Twitter sidebars - desktop only */
-        .twitter-sidebar {
-            position: fixed;
-            top: 20px;
-            width: 300px;
-            height: calc(100vh - 40px);
-            z-index: 100;
-            display: none;
-        }
 
-        .twitter-sidebar-left {
-            left: 20px;
-        }
-
-        .twitter-sidebar-right {
-            right: 20px;
-        }
-
-        @media (min-width: 1400px) {
-            .twitter-sidebar {
-                display: block;
-            }
-        }
 
         .container {
             max-width: 900px;
@@ -291,34 +269,9 @@
     </style>
 </head>
 <body>
-    <!-- Twitter Sidebar Left -->
-    <div class="twitter-sidebar twitter-sidebar-left">
-        <a class="twitter-timeline" 
-           data-width="300"
-           data-height="100%" 
-           data-theme="light"
-           data-tweet-limit="5"
-           data-chrome="noheader nofooter noborders transparent"
-           href="https://twitter.com/ugichapla">
-           Tweets by @ugichapla
-        </a>
-    </div>
-
-    <!-- Twitter Sidebar Right -->
-    <div class="twitter-sidebar twitter-sidebar-right">
-        <a class="twitter-timeline" 
-           data-width="300"
-           data-height="100%" 
-           data-theme="light"
-           data-tweet-limit="5"
-           data-chrome="noheader nofooter noborders transparent"
-           href="https://twitter.com/ugichapla">
-           Tweets by @ugichapla
-        </a>
-    </div>
-
     <div class="container">
         <header>
+            <img src="https://via.placeholder.com/180" alt="Abhishek Deshpande" class="profile-img">
             <h1>ABHISHEK DESHPANDE</h1>
             <p class="tagline">🎤 Making You Laugh Since... Well, Recently! 🤣</p>
         </header>
@@ -330,16 +283,20 @@
         </div>
 
         <div class="links-section">
-            <h2>🎪 THE GOOD STUFF 🎪</h2>
+            <h2>🎭 UPCOMING SHOWS 🎭</h2>
+            
+            <a href="https://in.bookmyshow.com/events/shuddha-shakahari-a-marathi-stand-up-comedy-show/ET00421141" class="link-card show-card" target="_blank" rel="noopener">
+                <div class="link-card-title">🎤 Pune Show - Shuddha Shakahari</div>
+                <div class="link-card-desc">Date: 1st February 2026 | Venue: Vintage Comedy Club Pune<br>Book your tickets on BookMyShow!</div>
+            </a>
+        </div>
+
+        <div class="links-section">
+            <h2>🎪 CONNECT WITH ME 🎪</h2>
             
             <a href="https://amzn.in/d/26YFmTm" class="link-card" target="_blank" rel="noopener">
                 <div class="link-card-title"><span class="emoji-large">📚</span>My Book on Amazon</div>
                 <div class="link-card-desc">Yes, I wrote a WHOLE book! Available on Amazon. Warning: May cause uncontrollable laughter and side-stitches.</div>
-            </a>
-
-            <a href="https://in.bookmyshow.com/person/abhishek-deshpande/2051715" class="link-card" target="_blank" rel="noopener">
-                <div class="link-card-title"><span class="emoji-large">🎭</span>Book Show Tickets!</div>
-                <div class="link-card-desc">Catch me live! Book tickets on BookMyShow before all the cool kids take them. FOMO is real, my friend.</div>
             </a>
 
             <a href="https://m.youtube.com/@ugichapla" class="link-card" target="_blank" rel="noopener">
@@ -358,6 +315,16 @@
             </a>
         </div>
 
+        <div class="links-section">
+            <h2>🎭 UPCOMING SHOWS 🎭</h2>
+            
+            <a href="https://in.bookmyshow.com/person/abhishek-deshpande/2051715" class="link-card show-card" target="_blank" rel="noopener">
+                <div class="link-card-title">🎤 Mumbai Show</div>
+                <div class="link-card-desc">Date: TBD | Venue: TBD<br>Book your tickets on BookMyShow!</div>
+            </a>
+
+        </div>
+
         <div class="social-links">
             <h3>🌟 Follow The Madness 🌟</h3>
             <a href="https://instagram.com/ugichapla" target="_blank" rel="noopener">Instagram</a>
@@ -369,8 +336,5 @@
             <p style="margin-top: 10px; font-size: 0.9em;">No comedians were harmed in the making of this website.</p>
         </footer>
     </div>
-
-    <!-- X/Twitter Widget Script -->
-    <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
