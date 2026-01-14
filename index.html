@@ -10,6 +10,7 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Comic Sans MS', 'Segoe UI', cursive, sans-serif;
             line-height: 1.6;
@@ -18,6 +19,31 @@
             background-image: 
                 repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px);
             min-height: 100vh;
+            position: relative;
+        }
+
+        /* Twitter sidebars - desktop only */
+        .twitter-sidebar {
+            position: fixed;
+            top: 20px;
+            width: 300px;
+            height: calc(100vh - 40px);
+            z-index: 100;
+            display: none;
+        }
+
+        .twitter-sidebar-left {
+            left: 20px;
+        }
+
+        .twitter-sidebar-right {
+            right: 20px;
+        }
+
+        @media (min-width: 1400px) {
+            .twitter-sidebar {
+                display: block;
+            }
         }
 
         .container {
@@ -265,6 +291,28 @@
     </style>
 </head>
 <body>
+    <!-- Twitter Sidebar Left -->
+    <div class="twitter-sidebar twitter-sidebar-left">
+        <a class="twitter-timeline" 
+           data-height="100%" 
+           data-theme="light" 
+           data-chrome="nofooter noborders transparent"
+           href="https://twitter.com/ugichapla?ref_src=twsrc%5Etfw">
+           Tweets by ugichapla
+        </a>
+    </div>
+
+    <!-- Twitter Sidebar Right -->
+    <div class="twitter-sidebar twitter-sidebar-right">
+        <a class="twitter-timeline" 
+           data-height="100%" 
+           data-theme="light" 
+           data-chrome="nofooter noborders transparent"
+           href="https://twitter.com/ugichapla?ref_src=twsrc%5Etfw">
+           Tweets by ugichapla
+        </a>
+    </div>
+
     <div class="container">
         <header>
             <img src="https://via.placeholder.com/180" alt="Abhishek Deshpande" class="profile-img">
@@ -283,7 +331,7 @@
             
             <a href="https://amzn.in/d/26YFmTm" class="link-card" target="_blank" rel="noopener">
                 <div class="link-card-title"><span class="emoji-large">📚</span>My Book on Amazon</div>
-                <div class="link-card-desc">Yes, I wrote a WHOLE book about history of Indian stand up comedy scene! Available on Amazon. Warning: It has History in it! You might feel dated!!!</div>
+                <div class="link-card-desc">Yes, I wrote a WHOLE book! Available on Amazon. Warning: May cause uncontrollable laughter and side-stitches.</div>
             </a>
 
             <a href="https://in.bookmyshow.com/person/abhishek-deshpande/2051715" class="link-card" target="_blank" rel="noopener">
@@ -292,7 +340,7 @@
             </a>
 
             <a href="https://m.youtube.com/@ugichapla" class="link-card" target="_blank" rel="noopener">
-                <div class="link-card-title"><span class="emoji-large">🎥</span>YouTube - Ugich Apla</div>
+                <div class="link-card-title"><span class="emoji-large">🎥</span>YouTube - Ugich Chapla</div>
                 <div class="link-card-desc">Subscribe for comedy sketches, stand-up clips, and me embarrassing myself on camera. It's free entertainment!</div>
             </a>
 
@@ -301,7 +349,7 @@
                 <div class="link-card-desc">Daily dose of humor, behind-the-scenes chaos, and proof that I actually leave my house sometimes.</div>
             </a>
 
-            <a href="mailto:abhishek.deshpande3@gmail.com" class="link-card">
+            <a href="mailto:your.email@example.com" class="link-card">
                 <div class="link-card-title"><span class="emoji-large">✉️</span>Let's Work Together!</div>
                 <div class="link-card-desc">For bookings, collaborations, or if you just want to tell me a joke. I'm all ears! (Well, two ears, to be specific.)</div>
             </a>
@@ -318,5 +366,8 @@
             <p style="margin-top: 10px; font-size: 0.9em;">No comedians were harmed in the making of this website.</p>
         </footer>
     </div>
+
+    <!-- Twitter Widget Script -->
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
