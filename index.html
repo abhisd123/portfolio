@@ -22,12 +22,32 @@
             position: relative;
         }
 
-
-
         .container {
-            max-width: 900px;
+            max-width: 1200px; /* Increased to fit sidebar */
             margin: 0 auto;
             padding: 20px;
+        }
+
+        /* NEW LAYOUT WRAPPER */
+        .layout-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        @media (min-width: 1024px) {
+            .layout-grid {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+            .main-content {
+                flex: 2;
+            }
+            .x-sidebar {
+                flex: 1;
+                position: sticky;
+                top: 20px;
+            }
         }
 
         header {
@@ -55,23 +75,6 @@
         @keyframes rotate {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
-        }
-
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 6px solid #fff;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-            margin-bottom: 20px;
-            object-fit: cover;
-            background: #f0f0f0;
-            transform: rotate(-5deg);
-            transition: transform 0.3s;
-        }
-
-        .profile-img:hover {
-            transform: rotate(5deg) scale(1.05);
         }
 
         h1 {
@@ -121,10 +124,6 @@
             border-left: 5px solid #ff6b6b;
         }
 
-        .links-section {
-            margin-bottom: 30px;
-        }
-
         .links-section h2 {
             color: #ff6b6b;
             margin-bottom: 25px;
@@ -158,32 +157,11 @@
             background: #ffe66d;
         }
 
-        .link-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
-            transition: left 0.5s;
-        }
-
-        .link-card:hover::before {
-            left: 100%;
-        }
-
         .link-card-title {
             font-size: 1.5em;
             font-weight: bold;
             margin-bottom: 8px;
             color: #ff6b6b;
-        }
-
-        .link-card-desc {
-            font-size: 1.05em;
-            color: #2d2d2d;
-            font-weight: 500;
         }
 
         .emoji-large {
@@ -198,6 +176,27 @@
             50% { transform: translateY(-10px); }
         }
 
+        /* SIDEBAR STYLING */
+        .x-sidebar {
+            background: #fff;
+            border: 5px solid #000;
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 10px 10px 0px #ff6b6b;
+        }
+
+        .sidebar-title {
+            font-size: 1.5em;
+            text-align: center;
+            padding: 10px;
+            background: #4ecdc4;
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border: 3px solid #000;
+            text-shadow: 2px 2px 0px #000;
+        }
+
         .social-links {
             text-align: center;
             padding: 20px;
@@ -208,116 +207,95 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
-        .social-links h3 {
-            color: #fff;
-            margin-bottom: 15px;
-            font-size: 1.8em;
-            text-shadow: 2px 2px 0px #000;
-        }
-
         .social-links a {
             display: inline-block;
             margin: 10px;
             color: #2d2d2d;
-            font-size: 1.1em;
-            text-decoration: none;
             padding: 12px 25px;
             background: #ffd700;
             border-radius: 25px;
             border: 3px solid #000;
             font-weight: bold;
-            transition: all 0.3s;
+            text-decoration: none;
+            transition: 0.3s;
             box-shadow: 3px 3px 0px #000;
-        }
-
-        .social-links a:hover {
-            transform: translateY(-3px);
-            box-shadow: 5px 5px 0px #000;
-            background: #fff;
         }
 
         footer {
             text-align: center;
             padding: 30px;
             color: #2d2d2d;
-            font-size: 1.1em;
             background: #4ecdc4;
             border-radius: 15px;
             border: 5px solid #fff;
             font-weight: bold;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-top: 30px;
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.2em;
-            }
-            
-            .profile-img {
-                width: 150px;
-                height: 150px;
-            }
-            
-            .bio, .links-section {
-                padding: 20px;
-            }
-
-            .tagline {
-                font-size: 1.1em;
-            }
+            h1 { font-size: 2.2em; }
+            .tagline { font-size: 1.1em; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>ABHISHEK DESHPANDE</h1>
-            <p class="tagline">🎤 Making You Laugh Since... Well, Recently! 🤣</p>
-        </header>
-
-        <div class="bio">
-            <h2>👋 Namaste! I'm Abhishek!</h2>
-            <p>I'm a comedian who believes laughter is the best medicine (but also, please take your actual medicine, I'm not a doctor!).</p>
-            <p>I've been making people laugh across India, and I even wrote a book about it because apparently, I had too many jokes to keep on stage.</p>
-        </div>
-
-        <div class="links-section">
-            <h2>🎭 UPCOMING SHOWS 🎭</h2>
+        <div class="layout-grid">
             
-            <a href="https://in.bookmyshow.com/events/shuddha-shakahari-a-marathi-stand-up-comedy-show/ET00437393" class="link-card show-card" target="_blank" rel="noopener">
-                <div class="link-card-title">🎤 Pune Show - Shuddha Shakahari</div>
-                <div class="link-card-desc">Date: 1st February 2026 | Venue: Vintage Comedy Club Pune<br>Book your tickets on BookMyShow!</div>
-            </a>
-        </div>
+            <main class="main-content">
+                <header>
+                    <h1>ABHISHEK DESHPANDE</h1>
+                    <p class="tagline">🎤 Making You Laugh Since... Well, Recently! 🤣</p>
+                </header>
 
-        <div class="links-section">
-            <h2>🎪 CONNECT WITH ME 🎪</h2>
-            
-            <a href="https://amzn.in/d/26YFmTm" class="link-card" target="_blank" rel="noopener">
-                <div class="link-card-title"><span class="emoji-large">📚</span>My Book on Amazon</div>
-                <div class="link-card-desc">Yes, I wrote a WHOLE book! Available on Amazon. Warning: May cause uncontrollable laughter and side-stitches.</div>
-            </a>
+                <div class="bio">
+                    <h2>👋 Namaste! I'm Abhishek!</h2>
+                    <p>I'm a comedian who believes laughter is the best medicine (but also, please take your actual medicine, I'm not a doctor!).</p>
+                    <p>I've been making people laugh across India, and I even wrote a book about it because apparently, I had too many jokes to keep on stage.</p>
+                </div>
 
-            <a href="https://m.youtube.com/@ugichapla" class="link-card" target="_blank" rel="noopener">
-                <div class="link-card-title"><span class="emoji-large">🎥</span>YouTube - Ugich Chapla</div>
-                <div class="link-card-desc">Subscribe for comedy sketches, stand-up clips, and me embarrassing myself on camera. It's free entertainment!</div>
-            </a>
+                <div class="links-section">
+                    <h2>🎭 UPCOMING SHOWS 🎭</h2>
+                    <a href="https://in.bookmyshow.com/events/shuddha-shakahari-a-marathi-stand-up-comedy-show/ET00437393" class="link-card" target="_blank">
+                        <div class="link-card-title">🎤 Pune Show - Shuddha Shakahari</div>
+                        <div class="link-card-desc">Date: 1st February 2026 | Venue: Vintage Comedy Club Pune<br>Book your tickets on BookMyShow!</div>
+                    </a>
+                </div>
 
-            <a href="https://instagram.com/ugichapla" class="link-card" target="_blank" rel="noopener">
-                <div class="link-card-title"><span class="emoji-large">📸</span>Instagram - @ugichapla</div>
-                <div class="link-card-desc">Daily dose of humor, behind-the-scenes chaos, and proof that I actually leave my house sometimes.</div>
-            </a>
+                <div class="links-section">
+                    <h2>🎪 CONNECT WITH ME 🎪</h2>
+                    <a href="https://amzn.in/d/26YFmTm" class="link-card" target="_blank">
+                        <div class="link-card-title"><span class="emoji-large">📚</span>My Book on Amazon</div>
+                        <div class="link-card-desc">Yes, I wrote a WHOLE book! Available on Amazon. Warning: May cause uncontrollable laughter.</div>
+                    </a>
 
-            <a href="mailto:your.email@example.com" class="link-card">
-                <div class="link-card-title"><span class="emoji-large">✉️</span>Let's Work Together!</div>
-                <div class="link-card-desc">For bookings, collaborations, or if you just want to tell me a joke. I'm all ears! (Well, two ears, to be specific.)</div>
-            </a>
-        </div>
+                    <a href="https://m.youtube.com/@ugichapla" class="link-card" target="_blank">
+                        <div class="link-card-title"><span class="emoji-large">🎥</span>YouTube - Ugich Chapla</div>
+                        <div class="link-card-desc">Subscribe for comedy sketches and me embarrassing myself on camera. It's free!</div>
+                    </a>
 
-        <div class="social-links">
+                    <a href="mailto:your.email@example.com" class="link-card">
+                        <div class="link-card-title"><span class="emoji-large">✉️</span>Let's Work Together!</div>
+                        <div class="link-card-desc">For bookings, collaborations, or if you just want to tell me a joke. I'm all ears!</div>
+                    </a>
+                </div>
+            </main>
+
+            <aside class="x-sidebar">
+                <div class="sidebar-title">🐦 Live From X</div>
+                <a class="twitter-timeline" 
+                   data-height="600" 
+                   data-chrome="nofooter, noborders"
+                   href="https://twitter.com/ugichapla?ref_src=twsrc%5Etfw">
+                   Loading the latest jokes...
+                </a> 
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </aside>
+
+        </div> <div class="social-links">
             <h3>🌟 Follow The Madness 🌟</h3>
-            <a href="https://instagram.com/ugichapla" target="_blank" rel="noopener">Instagram</a>
-            <a href="https://m.youtube.com/@ugichapla" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://instagram.com/ugichapla" target="_blank">Instagram</a>
+            <a href="https://m.youtube.com/@ugichapla" target="_blank">YouTube</a>
         </div>
 
         <footer>
